@@ -31,14 +31,15 @@ These instructions are meant to be used by a new or old project. Please respect 
 
 ## Generate the msw service worker and target generation
 
-npx msw init /public
+npx msw init /src/api/mock/auto-gen
 
 # Openapi spec generation for Services, Types and other elements
 
-## Install ng-openapi-gen
+## Install openapi-tools
 
-npm install -g ng-openapi-gen
+- npm install @openapitools/openapi-generator-cli --save-dev
+- Install a JRE of your choice to run the generator (Oracle)
 
 ## Generate Api
 
-npx ng-openapi-gen --input api/specs/petstore-v3.1.json --output api/auto-gen
+- npx openapi-generator-cli generate -i ./src/api/specs/petstore-v3.1.json -g typescript-angular -o ./src/api/auto-gen

@@ -12,6 +12,7 @@ const serverConfig: ApplicationConfig = {
   providers: [
     provideServerRendering(),
     provideHttpClient(withInterceptorsFromDi()),
+    /* Use this this to alter HTTP Client Basepath - For whatever reason */
     /*{ provide: BASE_PATH, useValue: 'http://localhost:3000' },*/
   ],
 };
