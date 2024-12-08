@@ -12,7 +12,11 @@ These instructions are meant to be used by a new or old project. Please respect 
   - specs
     - openapi_spec.json
   - mock
-    - Auto generated API Handlers - Ideally DO NOT CHANGE unless required
+    - auto-gen
+      - Auto generated API Handlers - Ideally DO NOT CHANGE unless required
+    - custom-handlers
+      - handlers.js
+        For your custom handlers independent of autogeneration (Will not be overwritten)
   - gen
     - Auto generated API Handlers - Ideally DO NOT CHANGE. If required something went realy wrong ask for help.
 
@@ -23,8 +27,18 @@ These instructions are meant to be used by a new or old project. Please respect 
 
 ## Generate Handlers and Setup for msw
 
-- npx msw-auto-mock ./src/api/specs/openapi_spec.json -o ./src/api/mock
+- npx msw-auto-mock ./src/api/specs/petstore-v3.1.json -o ./src/api/mock/auto-gen --base-url http://petstore.swagger.io/v1
 
 ## Generate the msw service worker and target generation
 
-npx msw init src/api/mock
+npx msw init /public
+
+# Openapi spec generation for Services, Types and other elements
+
+## Install ng-openapi-gen
+
+npm install -g ng-openapi-gen
+
+## Generate Api
+
+npx ng-openapi-gen --input api/specs/petstore-v3.1.json --output api/auto-gen

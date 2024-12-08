@@ -3,7 +3,7 @@ import { faker } from "@faker-js/faker";
 
 faker.seed(1);
 
-const baseURL = "";
+const baseURL = "http://petstore.swagger.io/v1";
 const MAX_ARRAY_LENGTH = 20;
 
 let i = 0;
@@ -15,18 +15,11 @@ const next = () => {
 };
 
 export const handlers = [
-  http.get(`${baseURL}/pets`, async () => {
+  /*http.get(`${baseURL}/pets`, async () => {
     const resultArray = [
       [await getListPets200Response(), { status: 200 }],
       [await getListPetsdefaultResponse(), { status: NaN }],
     ];
     return HttpResponse.json(...resultArray[next() % resultArray.length]);
-  }),
-  http.post(`${baseURL}/pets`, async () => {
-    const resultArray = [
-      [undefined, { status: 201 }],
-      [await getCreatePetsdefaultResponse(), { status: NaN }],
-    ];
-    return HttpResponse.json(...resultArray[next() % resultArray.length]);
-  })
-]
+  }),*/
+];
